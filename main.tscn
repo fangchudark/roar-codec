@@ -1,0 +1,102 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwly182cs20ee"]
+
+[ext_resource type="Script" uid="uid://da4erv4ecn3r2" path="res://main.gd" id="1_ig7tw"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("encode", "decode", "plaintext", "ciphertext", "key")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+encode = NodePath("Panel/VBoxContainer/HBoxContainer2/Encode")
+decode = NodePath("Panel/VBoxContainer/HBoxContainer2/Decode")
+plaintext = NodePath("Panel/VBoxContainer/HBoxContainer/Plaintext")
+ciphertext = NodePath("Panel/VBoxContainer/HBoxContainer3/Ciphertext")
+key = NodePath("Panel/VBoxContainer/HBoxContainer2/HBoxContainer/Key")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 18.0
+offset_right = -17.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "兽音解密"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "输入明文"
+
+[node name="Plaintext" type="TextEdit" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+wrap_mode = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Encode" type="Button" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "加密"
+
+[node name="Decode" type="Button" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "解密"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "四字密钥"
+
+[node name="Key" type="LineEdit" parent="Panel/VBoxContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "嗷呜啊~"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "输入密文"
+
+[node name="Ciphertext" type="TextEdit" parent="Panel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+wrap_mode = 1
+autowrap_mode = 2
