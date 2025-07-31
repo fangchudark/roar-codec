@@ -25,8 +25,8 @@ public class RoarCodec
         {
             int value = Convert.ToInt32(hex[i].ToString(), 16);
             value = (value + i % 16) % 16;
-            result.Append(codec[value / 4]);
-            result.Append(codec[value % 4]);
+            result.Append(codec[value >> 2]);
+            result.Append(codec[value & 0b0011]);
         }
 
         // 最终密文结构
@@ -56,7 +56,7 @@ public class RoarCodec
             if (a == -1 || b == -1)
                 throw new Exception("解码失败");
 
-            int index = (4 * a + b - (i / 2 % 16) + 16) % 16;
+            int index = ((a << 2 | b) - (i / 2 % 16) + 16) % 16;
             hex.Append(index.ToString("X"));
         }
 
